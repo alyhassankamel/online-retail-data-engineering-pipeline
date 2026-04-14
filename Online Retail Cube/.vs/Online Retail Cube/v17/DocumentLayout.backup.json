@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{95481D4F-B5B0-D316-3185-A1AAA1E326BF}|Online Retail Cube\\Online Retail Cube.dwproj|C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\Online Retail Cube\\DIM DATE.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{95481D4F-B5B0-D316-3185-A1AAA1E326BF}|Online Retail Cube\\Online Retail Cube.dwproj|solutionrelative:Online Retail Cube\\DIM DATE.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95481D4F-B5B0-D316-3185-A1AAA1E326BF}|Online Retail Cube\\Online Retail Cube.dwproj|C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\Online Retail Cube\\Online Retail DW.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{95481D4F-B5B0-D316-3185-A1AAA1E326BF}|Online Retail Cube\\Online Retail Cube.dwproj|solutionrelative:Online Retail Cube\\Online Retail DW.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DIM DATE.dim [Design]",
+              "DocumentMoniker": "C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\Online Retail Cube\\DIM DATE.dim",
+              "RelativeDocumentMoniker": "Online Retail Cube\\DIM DATE.dim",
+              "ToolTip": "C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\Online Retail Cube\\DIM DATE.dim [Design]",
+              "RelativeToolTip": "Online Retail Cube\\DIM DATE.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-05T20:11:55.421Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Online Retail DW.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\Online Retail Cube\\Online Retail DW.cube",
+              "RelativeDocumentMoniker": "Online Retail Cube\\Online Retail DW.cube",
+              "ToolTip": "C:\\Users\\xaali\\Personal Data\\Uni\\Y3\\Y3S2\\Big Data\\Project\\The_Underdogs_Deliverable_2\\Online Retail Cube\\Online Retail Cube\\Online Retail DW.cube [Design]",
+              "RelativeToolTip": "Online Retail Cube\\Online Retail DW.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-05T00:14:04.224Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

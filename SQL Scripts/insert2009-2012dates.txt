@@ -1,0 +1,15 @@
+WITH DateCTE AS (
+    SELECT CAST('2009-01-01' AS DATE) AS d
+    UNION ALL
+    SELECT DATEADD(DAY, 1, d) FROM DateCTE WHERE d < '2012-12-31'
+)
+INSERT INTO DIM_DATE (DateID, FullDate, Day, Month, Year, Quarter)
+SELECT
+    CONVERT(INT, FORMAT(d, 'yyyyMMdd')),
+    d,
+    DAY(d),
+    MONTH(d),
+    YEAR(d),
+    DATEPART(QUARTER, d)
+FROM DateCTE
+OPTION (MAXRECURSION 2000);

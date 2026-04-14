@@ -1,0 +1,78 @@
+CREATE DATABASE OnlineRetailDW;
+GO
+
+-- DIM_COUNTRY
+CREATE TABLE DIM_COUNTRY (
+    CountryID    INT           IDENTITY(1,1) PRIMARY KEY,
+    CountryName  NVARCHAR(100) NOT NULL,
+    CountryGroup NVARCHAR(100) NOT NULL
+);
+
+-- DIM_CUSTOMER
+CREATE TABLE DIM_CUSTOMER (
+    CustomerID INT NOT NULL PRIMARY KEY,
+    CountryID  INT NOT NULL FOREIGN KEY REFERENCES DIM_COUNTRY(CountryID)
+);
+
+-- DIM_PRODUCT
+CREATE TABLE DIM_PRODUCT (
+    ProductID   INT           IDENTITY(1,1) PRIMARY KEY,
+    StockCode   NVARCHAR(20)  NOT NULL UNIQUE,
+    [Description] NVARCHAR(500) NOT NULL
+);
+
+-- DIM_DATE
+CREATE TABLE DIM_DATE (
+    DateID   INT      PRIMARY KEY,  -- format: YYYYMMDD
+    FullDate DATE     NOT NULL,
+    Day      TINYINT  NOT NULL,
+    Month    TINYINT  NOT NULL,
+    Year     SMALLINT NOT NULL,
+    Quarter  TINYINT  NOT NULL
+);
+
+-- FACT_SALES (corrected)
+CREATE TABLE FACT_SALES (
+    InvoiceNo   NVARCHAR(20) NOT NULL,
+    ProductID   INT          NOT NULL FOREIGN KEY REFERENCES DIM_PRODUCT(ProductID),
+    CustomerID  INT          NOT NULL FOREIGN KEY REFERENCES DIM_CUSTOMER(CustomerID),
+    DateID      INT          NOT NULL FOREIGN KEY REFERENCES DIM_DATE(DateID),
+    Quantity    INT          NOT NULL,
+    UnitPrice   DECIMAL(18,2) NOT NULL,  -- Changed from FLOAT
+    TotalAmount AS (CAST(Quantity AS DECIMAL(18,2)) * UnitPrice) PERSISTED, -- Optional PERSISTED
+    PRIMARY KEY (InvoiceNo, ProductID, CustomerID, DateID)
+);
+
+ALTER TABLE STG_OnlineRetail
+ALTER COLUMN StockCode NVARCHAR(255);
+
+ALTER TABLE STG_OnlineRetail
+ALTER COLUMN Country NVARCHAR(255);
+
+-- Drop existing tables (respect FK order)
+DROP TABLE FACT_SALES;
+DROP TABLE DIM_CUSTOMER;
+
+-- Recreate DIM_CUSTOMER without CountryID
+CREATE TABLE DIM_CUSTOMER (
+    CustomerID INT NOT NULL PRIMARY KEY
+);
+
+-- Recreate FACT_SALES with CountryID directly
+CREATE TABLE FACT_SALES (
+    InvoiceNo   NVARCHAR(20) NOT NULL,
+    ProductID   INT          NOT NULL FOREIGN KEY REFERENCES DIM_PRODUCT(ProductID),
+    CustomerID  INT          NOT NULL FOREIGN KEY REFERENCES DIM_CUSTOMER(CustomerID),
+    DateID      INT          NOT NULL FOREIGN KEY REFERENCES DIM_DATE(DateID),
+    CountryID   INT          NOT NULL FOREIGN KEY REFERENCES DIM_COUNTRY(CountryID),
+    Quantity    INT          NOT NULL,
+    UnitPrice   FLOAT        NOT NULL,
+    TotalAmount AS (CAST(Quantity AS FLOAT) * UnitPrice),
+    PRIMARY KEY (InvoiceNo, ProductID, CustomerID, DateID)
+);
+
+ALTER TABLE DIM_COUNTRY
+ALTER COLUMN CountryName NVARCHAR(255);
+
+ALTER TABLE DIM_PRODUCT
+ALTER COLUMN StockCode NVARCHAR(255);

@@ -1,0 +1,48 @@
+--to delete all
+TRUNCATE TABLE STG_OnlineRetail;
+DELETE FROM DIM_PRODUCT;
+DELETE FROM DIM_COUNTRY;
+DELETE FROM DIM_CUSTOMER;
+
+--only staging area
+TRUNCATE TABLE STG_OnlineRetail;
+----
+select count(STG_OnlineRetail.Invoice)
+from STG_OnlineRetail
+
+
+--only country
+DELETE FROM DIM_COUNTRY;
+---
+select count(CountryID)
+from DIM_COUNTRY
+
+--only Customers
+DELETE FROM DIM_CUSTOMER;
+---
+select count(CustomerID)
+from DIM_CUSTOMER
+
+--only Products
+DELETE FROM DIM_PRODUCT;
+----
+select count(StockCode)
+from DIM_PRODUCT
+
+select count(DateID)
+from DIM_DATE
+
+DELETE FROM FACT_SALES;
+
+--preview all
+SELECT 'STG_OnlineRetail' AS TableName, COUNT(*) AS RowCnt FROM STG_OnlineRetail
+UNION ALL
+SELECT 'DIM_COUNTRY',  COUNT(*) FROM DIM_COUNTRY
+UNION ALL
+SELECT 'DIM_PRODUCT',  COUNT(*) FROM DIM_PRODUCT
+UNION ALL
+SELECT 'DIM_CUSTOMER', COUNT(*) FROM DIM_CUSTOMER
+UNION ALL
+SELECT 'DIM_DATE',     COUNT(*) FROM DIM_DATE
+UNION ALL
+SELECT 'FACT_SALES',   COUNT(*) FROM FACT_SALES;

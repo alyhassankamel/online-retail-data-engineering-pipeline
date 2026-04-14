@@ -1,0 +1,14 @@
+SELECT
+NON EMPTY
+{
+[Measures].[Total Amount],
+[Measures].[Quantity],
+[Measures].[Unit Price]
+} ON COLUMNS,
+NON EMPTY
+TOPCOUNT(
+[DIM PRODUCT].[Stock Code].[Stock Code].MEMBERS,
+5,
+[Measures].[Total Amount]
+) ON ROWS
+FROM [Online Retail DW]
